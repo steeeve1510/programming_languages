@@ -47,8 +47,8 @@ public class Operator {
             }
         }
 
-//        System.out.println("Ending");
-//        System.out.println(dataStack);
+        System.out.println("Ending");
+        System.out.println(dataStack);
     }
 
     private void initializeRegisterA() {

@@ -34,6 +34,7 @@ public class ExecutionMode {
         commands.add(new BinaryBooleanCommand(dataStack));
         commands.add(new BinaryComparisionCommand(dataStack));
         commands.add(new BinaryNumberCommand(dataStack));
+        commands.add(new CheckIfNumberCommand(dataStack));
         commands.add(new CopyCommand(dataStack));
         commands.add(new DeleteCommand(dataStack));
         commands.add(new ExitCommand());
