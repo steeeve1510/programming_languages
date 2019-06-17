@@ -25,4 +25,15 @@ public class CommandStream {
     public boolean isEmpty() {
         return stream.isEmpty();
     }
+
+
+    public String toPrettyString() {
+        return stream;
+    }
+    @Override
+    public String toString() {
+        return "CommandStream{" +
+                "stream='" + stream + '\'' +
+                '}';
+    }
 }

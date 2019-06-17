@@ -19,16 +19,16 @@ public class Operator {
     private ListConstructionMode listConstructionMode;
     private NumberConstructionMode numberConstructionMode;
 
-    public Operator(String command) {
+    public Operator() {
         executionMode = new ExecutionMode(commandStream, dataStack, operationMode, registers, inputStream, outputStream);
         listConstructionMode = new ListConstructionMode(dataStack, operationMode);
         numberConstructionMode = new NumberConstructionMode(dataStack, operationMode);
 
-        registers.set('a', new List(command));
+        registers.set('a', new List(CodeUtil.welcome()));
     }
 
     public void run() {
-        initializeRegisterA();
+        initializeCommandStream();
 
         while (!commandStream.isEmpty()) {
             var command = commandStream.retrieve();
@@ -46,17 +46,9 @@ public class Operator {
                 throw new IllegalStateException();
             }
         }
-
-        System.out.println("Ending");
-        System.out.println(dataStack);
     }
 
-    private void initializeRegisterA() {
-        var element = registers.get('a');
-        if (!(element instanceof List)) {
-            throw new IllegalStateException();
-        }
-        var initialContent = ((List) element).get();
-        commandStream.addInFront(initialContent);
+    private void initializeCommandStream() {
+        commandStream.addInFront("a@");
     }
 }
