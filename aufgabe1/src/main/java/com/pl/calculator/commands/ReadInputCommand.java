@@ -42,7 +42,7 @@ public class ReadInputCommand implements Command {
 
         Element element = new List("");
         if (readDigitCommand.isApplicable(firstChar)) {
-            element = readNumber(remainingStream, tmpDataStack, tmpOperationMode);
+            element = readNumber(stream, tmpDataStack, tmpOperationMode);
         }
         if (readListCommand.isApplicable(firstChar)) {
             element = readList(remainingStream, tmpDataStack, tmpOperationMode);
@@ -51,15 +51,15 @@ public class ReadInputCommand implements Command {
         dataStack.push(element);
     }
 
-    private Element readNumber(String remainingStream, DataStack dataStack, OperationMode operationMode) {
+    private Element readNumber(String stream, DataStack dataStack, OperationMode operationMode) {
         dataStack.push(new Number(0));
         operationMode.setToIntegerConstructionMode();
 
         var numberConstructionMode = new NumberConstructionMode(dataStack, operationMode);
 
-        for (char c : remainingStream.toCharArray()) {
-            var executionDone = numberConstructionMode.execute(c);
-            if (!executionDone) {
+        for (char c : stream.toCharArray()) {
+            var wasDigit = numberConstructionMode.execute(c);
+            if (!wasDigit) {
                 return new List("");
             }
         }
@@ -67,20 +67,23 @@ public class ReadInputCommand implements Command {
         return dataStack.pop();
     }
 
-    private Element readList(String remainingStream, DataStack dataStack, OperationMode operationMode) {
+    private Element readList(String stream, DataStack dataStack, OperationMode operationMode) {
         dataStack.push(new List(""));
         operationMode.increaseListConstructionMode();
 
         var listConstructionMode = new ListConstructionMode(dataStack, operationMode);
 
-        var chars = remainingStream.toCharArray();
+        var chars = stream.toCharArray();
         for (int i = 0; i < chars.length; i++) {
             var command = chars[i];
-            var endNotFound = listConstructionMode.execute(command);
+            var wasEnd = listConstructionMode.execute(command);
 
-            if (!endNotFound && (i + 1) != chars.length) {
+            if (wasEnd && (i + 1) != chars.length) {
                 return new List("");
             }
+        }
+        if (operationMode.isInListConstructionMode()) {
+            return new List("");
         }
 
         return dataStack.pop();

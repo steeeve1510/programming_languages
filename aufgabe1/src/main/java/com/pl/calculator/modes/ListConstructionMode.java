@@ -23,7 +23,7 @@ public class ListConstructionMode {
         }
 
         if (operationMode.getMode() == 0) {
-            return false;
+            return true;
         }
 
         var element = dataStack.pop();
@@ -36,6 +36,6 @@ public class ListConstructionMode {
         stream += String.valueOf(command);
 
         dataStack.push(new List(stream));
-        return true;
+        return false;
     }
 }
