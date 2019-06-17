@@ -10,7 +10,9 @@ public class Calculator {
 //        String welcome = "(2 2+\")\\";
 //        String welcome = "0(9~)(8)(4!4$1+$@)@";
 
-        String welcome = "3(3!3!1-2!1=4!()(4!4$1+$@)@2$*)3!3$3!@2$";
+//        String welcome = "3(3!3!1-2!1=4!()(4!4$1+$@)@2$*)3!3$3!@2$";
+
+        String welcome = "3 2 1.5 5";
 
 
 

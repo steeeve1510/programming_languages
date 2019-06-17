@@ -37,7 +37,7 @@ public class ExecutionMode {
         commands.add(new CheckIfNumberCommand(dataStack));
         commands.add(new CopyCommand(dataStack));
         commands.add(new DeleteCommand(dataStack));
-        commands.add(new ExitCommand());
+        commands.add(new ExitCommand(commandStream));
         commands.add(new NegationCommand(dataStack));
         commands.add(new PopToRegisterCommand(dataStack, registers));
         commands.add(new PushRegisterCommand(dataStack, registers));
