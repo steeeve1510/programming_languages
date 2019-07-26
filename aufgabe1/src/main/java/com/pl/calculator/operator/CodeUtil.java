@@ -7,14 +7,14 @@ public class CodeUtil {
      * l1: code to be executed if false
      * l2: code to be executed if true
      */
-    public static String b_l1_l2_if() {
+    public static String if_b_l1_l2() {
         return "(4!4$1+$@)@";
     }
 
     /**
      * l: this list will be looped forever
      */
-    public static String l_loop() {
+    public static String loop_l() {
         return " (" +
                 " (3!@2!@) " +
                 "  3!@2!@  " +
@@ -22,23 +22,44 @@ public class CodeUtil {
     }
 
     /**
-     * l: an action which takes an element from the stack
-     * <p>
-     * this will clear the stack, except the last two elements
+     * lb: a list that evaluates to a boolean
+     * l1: this list will be looped
      */
-    public static String l_foreach_keep_2() {
+    public static String while_lb_l1() {
         return " (" +
-                " (#4= (4!4!@3$2!@) (1$1$) " + b_l1_l2_if() + " )" +
-                "  #4= (4!4!@3$2!@) (1$1$) " + b_l1_l2_if() + "  " +
+                " (4!@ (1$1$1$) (3!@2!@)" + if_b_l1_l2() + " )" +
+                "  4!@ (1$1$1$) (3!@2!@)" + if_b_l1_l2() + "  " +
+                ")@";
+    }
+
+    public static String dup() {
+        return "2!";
+    }
+
+    public static String drop() {
+        return "1$";
+    }
+
+    public static String printTopOfStack() {
+        return " (\n)\"" +
+                "(Top of Stack: )\" " + dup() + "\"" +
+                "(\n)\"";
+    }
+
+    public static String clearInReverseExceptFirstTwo() {
+        return " (" +
+                "  (#5>) " +
+                "  (# 2! ! \"( )\" 2-$) " +
+                "  " + while_lb_l1() +
                 ")@";
     }
 
     public static String welcome() {
         return "(Welcome to the Calculator!\n)\" " +   // print hello
                 "(' " +                                // start of loop
-                "   ? (@) ()" + b_l1_l2_if() +         // print the number or execute the list
-                "   (\"( )\") " + l_foreach_keep_2() + // print the stack, except the last two elements
+                "   ? (@) ()" + if_b_l1_l2() +         // print the number or execute the list
+                "   " + clearInReverseExceptFirstTwo() + // print the stack, except the last two elements
                 "   (\n)\" " +                         // print newline
-                ")" + l_loop();
+                ")" + loop_l();
     }
 }

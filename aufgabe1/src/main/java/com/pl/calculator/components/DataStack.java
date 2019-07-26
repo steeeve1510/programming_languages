@@ -39,7 +39,8 @@ public class DataStack {
         String ret = "";
         for (var e : stack) {
             if (e instanceof List) {
-                ret = "(" + e.toOutputString() + ") " + ret;
+//                ret = "(" + e.toOutputString() + ") " + ret;
+                ret = "(...) " + ret;
             } else {
                 ret = e.toOutputString() + " " + ret;
             }

@@ -34,9 +34,9 @@ public class Operator {
             var command = commandStream.retrieve();
 
             if (operationMode.isInIntegerConstructionMode()) {
-                var executed = numberConstructionMode.execute(command);
-                if (!executed) {
-                    commandStream.addInFront(String.valueOf(command));
+                numberConstructionMode.execute(command);
+                if (operationMode.isInExecutionMode()) {
+                    executionMode.execute(command);
                 }
             } else if (operationMode.isInListConstructionMode()) {
                 listConstructionMode.execute(command);
