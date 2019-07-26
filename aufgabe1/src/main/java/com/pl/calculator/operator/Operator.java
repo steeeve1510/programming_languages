@@ -25,6 +25,7 @@ public class Operator {
         numberConstructionMode = new NumberConstructionMode(dataStack, operationMode);
 
         registers.set('a', new List(CodeUtil.welcome()));
+        registers.set('b', new List(CodeUtil.printPrimeFactors_n__()));
     }
 
     public void run() {
