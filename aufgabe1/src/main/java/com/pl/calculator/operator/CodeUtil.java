@@ -31,6 +31,8 @@ public class CodeUtil {
      *         number = number / factor;
      *     }
      * }
+     *
+     * z: the number
      */
     public static String printPrimeFactors_n__() {
         return "" +
@@ -55,6 +57,9 @@ public class CodeUtil {
      *     }
      *     return factorCandidate;
      * }
+     *
+     * x: the rest of each modulo calculation
+     * y: the factor candidate
      */
     private static String getSmallestFactor_n__n() {
         return " (" +
