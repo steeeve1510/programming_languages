@@ -26,6 +26,10 @@ public class Operator {
 
         registers.set('a', new List(CodeUtil.welcome()));
         registers.set('b', new List(CodeUtil.printPrimeFactors_n__()));
+        registers.set('c', new List(CodeUtil.if_b_l1_l2__()));
+        registers.set('d', new List(CodeUtil.loop_l__()));
+        registers.set('e', new List(CodeUtil.while_lb_l1__()));
+        registers.set('f', new List(CodeUtil.swap_x1_x2__x2_x1()));
     }
 
     public void run() {
