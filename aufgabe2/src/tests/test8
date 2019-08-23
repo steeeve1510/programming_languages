@@ -1,0 +1,5 @@
+{ 	
+	test end;
+	test ?n & val true @{!n >= 1} & print "incorrect" & exit 1;
+	test end & print "correct" & exit 0;
+}

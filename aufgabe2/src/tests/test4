@@ -1,0 +1,19 @@
+{ 	
+	val ?a @{2 * 3} & val true @{!a = 6} & print "correct";
+	val ?a @{2 * 3} & val true @{7 <> !a} & print "correct";
+	val ?a @{2 * 3} & val true @{7 > !a} & print "correct";
+	val ?a @{2 * 3} & val true @{6 <= !a} & print "correct";
+	val ?a @{2 * 3} & val true @{6 >= !a} & print "correct";
+	val ?a @{2 * 3} & val true @{5 <= !a} & print "correct";
+	val ?a @{2 * 3} & val true @{7 >= !a} & print "correct";
+	val ?a @{2 * 3} & val true @{"asd" = asd} & print "correct";
+	val ?a @{2 * 3} & val true @{"asdf" <> asd} & print "correct";
+	
+	val ?a @{2 * 3} & val false @{!a = 7} & print "correct";
+	val ?a @{2 * 3} & val false @{6 <> !a} & print "correct";
+	val ?a @{2 * 3} & val false @{6 > !a} & print "correct";
+	val ?a @{2 * 3} & val false @{7 <= !a} & print "correct";
+	val ?a @{2 * 3} & val false @{5 >= !a} & print "correct";
+	val ?a @{2 * 3} & val false @{"asdf" = asd} & print "correct";
+	val ?a @{2 * 3} & val false @{"asd" <> asd} & print "correct";
+}

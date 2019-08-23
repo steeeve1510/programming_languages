@@ -1,0 +1,9 @@
+{ 
+	print "Type in an integer >= 1 ('end' to terminate)";
+	readline;
+	read ?n & val true @{!n >= 1} [fact !n !n];
+	fact ?f ?n & val true @{!n > 1} & val ?m @{!n - 1} & val ?g @{!f * !m} [fact !g !m ..];
+	fact ?f 1 [print !f; readline; read ?n & val true @{!n >= 1} [fact !n !n] ..];
+	read end [exit 0];
+	read ?n & val false @{!n = end} [print "Wrong input"; readline; read ?n & val true @{!n >= 1} [fact !n !n] ..]
+}
