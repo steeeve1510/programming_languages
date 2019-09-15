@@ -1,0 +1,4 @@
+{ 	
+    val ?a @{2 * 3} & print !a;
+    val ?a @{2 * 3} & val ?b @{!a / 2} & print !b;
+}

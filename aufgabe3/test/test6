@@ -1,0 +1,4 @@
+{ 	
+    readline;	
+    read ?n & val ?a @{!n * !n} & print !a
+}

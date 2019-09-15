@@ -1,0 +1,44 @@
+cabal-version:       >=1.10
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 75f80ff86d34a916d119260727491975b117116678d581b18036786e9d3a3927
+
+name:           editor
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/editor#readme>
+homepage:       https://github.com/githubuser/editor#readme
+bug-reports:    https://github.com/githubuser/editor/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2019 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/editor
+
+executable editor-exe
+  ghc-options:         -threaded -Wall
+  hs-source-dirs:      src
+  main-is:             Main.hs
+  default-language:    Haskell2010
+  other-modules:
+    Lexer,
+    Parser,
+    Renderer
+  build-depends:       base >= 4.7 && < 5,
+                       brick >= 0.8,
+                       parsec,
+                       vty,
+                       microlens,
+                       microlens-th,
+                       text,
+                       split >= 0.2.3.1

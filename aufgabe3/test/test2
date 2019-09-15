@@ -1,0 +1,31 @@
+{ 	
+    test 1;
+    test ?n & print !n [print "correct"];
+}
+
+
+
+# e0 = test 1;
+# 
+# E0 = {e0}
+# R0 = {e0}
+# 
+# 
+# r0 = test 1;
+# e0 = test ?n & print !n [print "correct"];
+# 
+# r'0 = "";
+# e'0 = print 1 [print "correct"];
+# 
+# E1 = {test 1, print !n [print "correct"]}
+# R1 = {"", print 1 [print "correct"]}
+# 
+# 
+# r1 = print 1 [print "correct"];
+# e1 = print ?n;
+# 
+# r'1 = [print "correct"];
+# e'1 = ;
+# 
+# E2 = {test ?n & print !n, test 1, print ?n}
+# R2 = {[print "correct"]}
