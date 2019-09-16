@@ -1,4 +1,3 @@
-{-# LANGUAGE FlexibleContexts #-}
 module Lexer
   ( TokenType(..)
   , Token(..)

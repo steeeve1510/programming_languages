@@ -1,4 +1,3 @@
-{-# LANGUAGE FlexibleContexts #-}
 module Parser
     ( Pool(..)
     , Entities(..)
