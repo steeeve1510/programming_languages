@@ -48,7 +48,7 @@ token = choice
   , accept ERR_STRING $ try $ do str <- strPrefix <* (notFollowedBy $ char '"') ; return $ "\"" ++ str
   , accept NL $ string "\n"
   , accept WS $ many1 $ oneOf " \t"
-  , accept ID $ do t <- oneOf alphaNumSpecial ; ts <- many $ oneOf alphaNumSpecial ; return $ (t:ts :: String)
+  , accept ID $ many1 $ oneOf alphaNumSpecial
   , accept ERR $ do t <- anyToken ; return [t]
   ]
   where

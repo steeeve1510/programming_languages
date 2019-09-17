@@ -48,9 +48,9 @@ doSave st =
       return $ st' & fpath .~ fp
 
     readAndSave st' = do
-      putStrLn "File path:"
+      putStrLn "Please enter output file path:"
       fp <- getLine
-      catchIOError ((writeFile fp $ content st') >> return fp) (\_ -> putStrLn "Invalid file!!" >> readAndSave st)
+      catchIOError ((writeFile fp $ content st') >> return fp) (\_ -> putStrLn "Invalid file!" >> readAndSave st)
 
     save st' = unsafePerformIO $ do
       writeFile (st'^.fpath) $ content st'

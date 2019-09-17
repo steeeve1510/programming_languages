@@ -21,7 +21,7 @@ markupMap :: AttrMap
 markupMap = attrMap V.defAttr
   [ ("error", bg V.red)
   , ("warning", bg V.yellow)
-  , ("comment", fg $ V.rgbColor 80 80 80)
+  , ("comment", fg $ V.rgbColor (80 :: Integer) (80 :: Integer) (80 :: Integer)) -- GRAY
   , ("dots", fg V.cyan)
   , ("at", fg V.brightMagenta)
   , ("guard", fg V.blue)
@@ -65,12 +65,8 @@ render txt =
         isErr tok errToks = (elem tok errToks) || (elem (tokType tok) [ERR_STRING])
 
         mergeHoriz [] = str "\n"
-        mergeHoriz ws = foldl (<+>) emptyWidget ws
+        mergeHoriz ws = foldl (<+>) emptyWidget ws -- HBox
         
-        mergeVert ws = foldl (<=>) emptyWidget ws
+        mergeVert ws = foldl (<=>) emptyWidget ws --  VBox
 
-        inspect tree = joinInspectionResults $ map (\i -> i tree) inspections
-
-        joinInspectionResults = foldl (\(warnsAcc, errsAcc) (warns, errs) -> (warnsAcc ++ warns, errsAcc ++ errs)) ([], [])
-
-        inspections = [] --TODO inspeciton of selected variable occurences, inspection of potential link matches
+        inspect tree = ([], [])--TODO inspeciton of selected variable occurences, inspection of potential link matches

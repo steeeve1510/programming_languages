@@ -11,7 +11,7 @@ module Parser
     , parseLang
     ) where
 
-import Text.Parsec hiding (token, anyToken, satisfy, noneOf, oneOf)
+import Text.Parsec hiding (token, anyToken, satisfy, noneOf)
 import Lexer
 
 data Pool = Pool Entities
@@ -32,7 +32,7 @@ data Links = Lnks [[Link]]
 data Link = LinkTok Tokems (Maybe Reference)
     deriving (Show, Eq)
     
-data Tokems = Tokms [Tokem]
+data Tokems = Tokms [Tokem] -- Tokem since Token already taken
     deriving (Show, Eq)
     
 data Tokem = StrTok Token
@@ -105,9 +105,6 @@ tokem = (token STRING >>= \t -> return $ StrTok t)
 
 token :: TokenType -> Parser Token
 token tt = satisfy (\t -> tokType t == tt)
-
-oneOf :: [TokenType] -> Parser Token
-oneOf tts = satisfy (\t -> elem (tokType t) tts)
 
 satisfy :: (Token -> Bool) -> Parser Token
 satisfy f = tokenPrim (\t -> text t) 
