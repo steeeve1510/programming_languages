@@ -30,6 +30,6 @@ public class ApplyLaterCommand implements Command {
 
         var stream = ((List) element).get();
 
-        commandStream.addInBack(stream);
+        commandStream.append(stream);
     }
 }

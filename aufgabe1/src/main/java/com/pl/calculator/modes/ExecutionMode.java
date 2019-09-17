@@ -46,8 +46,6 @@ public class ExecutionMode {
         commands.add(new ReadListCommand(dataStack, operationMode));
         commands.add(new StackSizeCommand(dataStack));
         commands.add(new WriteOutputCommand(dataStack, outputStream));
-
-        commands.add(new PrintDataStackCommand(dataStack));
     }
 
     public boolean execute(char streamCommand) {

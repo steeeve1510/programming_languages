@@ -4,11 +4,11 @@ public class CommandStream {
 
     private String stream = "";
 
-    public void addInFront(String s) {
+    public void prepend(String s) {
         stream = s + stream;
     }
 
-    public void addInBack(String s) {
+    public void append(String s) {
         stream += s;
     }
 
@@ -26,10 +26,6 @@ public class CommandStream {
         return stream.isEmpty();
     }
 
-
-    public String toPrettyString() {
-        return stream;
-    }
     @Override
     public String toString() {
         return "CommandStream{" +

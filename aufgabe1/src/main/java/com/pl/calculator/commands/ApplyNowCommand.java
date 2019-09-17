@@ -30,6 +30,6 @@ public class ApplyNowCommand implements Command {
 
         var stream = ((List) element).get();
 
-        commandStream.addInFront(stream);
+        commandStream.prepend(stream);
     }
 }

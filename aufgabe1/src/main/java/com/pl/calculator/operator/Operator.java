@@ -57,6 +57,6 @@ public class Operator {
     }
 
     private void initializeCommandStream() {
-        commandStream.addInFront("a@");
+        commandStream.prepend("a@");
     }
 }
